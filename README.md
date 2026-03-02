@@ -1,32 +1,56 @@
-BMB433: Helicase Activity Prediction
-Project Overview
-This project utilizes machine learning techniques to predict the biological activity of molecules against Helicase targets (specifically SUV3 Helicase and NS3 Helicase/NTPase). Using data derived from the ChEMBL database, the goal is to classify compounds as "Active" or "Inactive" based on their molecular properties and assay results.
+# BMB433 Helicase Activity Prediction
 
-Dataset
-The dataset (heli-smacc (1).csv) includes bioactivity data for over 20,000 compounds. Key features analyzed include:
+This repository contains a Python project that predicts the biological activity of molecules against Helicase targets using a Support Vector Machine (SVM) model. The project covers data preprocessing, visualization, model training, and evaluation.
 
-Molecular Weight
+## Table of Contents
 
-Standard Value (IC50)
+- [Overview](#overview)
+- [Dataset](#dataset)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Results](#results)
+- [Contributing](#contributing)
+- [License](#license)
 
-Outcomes (Active vs. Inactive classification)
+## Overview
 
-Methodology
-The project implements a supervised learning pipeline in Python:
+The main objective of this project is to predict compound activity (Active/Inactive) by performing the following steps:
 
-Data Preprocessing: Handling missing values using SimpleImputer and encoding categorical outcomes.
+**Preprocessing:**
+* Fill missing values in numerical features using the mean strategy.
+* Convert categorical "Outcome" features to numerical values using label encoding.
+* Normalize feature distributions using Standard Scaling.
 
-Feature Scaling: Normalizing feature distributions using StandardScaler.
+**Visualization:**
+* Generate and save a confusion matrix heatmap to visualize prediction errors.
 
-Modeling: Training a Support Vector Classifier (SVC) to predict compound activity.
+**Modeling:**
+* Train a Support Vector Classifier (SVC) with an RBF kernel.
+* Evaluate model performance using Accuracy and Weighted F1-Score.
 
-Evaluation: Assessing model performance using Accuracy, F1-Score, and Confusion Matrix visualization.
+## Dataset
 
-Technologies Used
-Python 3
+The project uses bioactivity data derived from the ChEMBL database.
+Please ensure the dataset file (`heli-smacc (1).csv`) is placed in the root directory or update the file path in the script accordingly.
 
-Pandas & NumPy (Data Manipulation)
+## Installation
 
-Scikit-Learn (Machine Learning & Metrics)
+Clone the repository and install the required packages. It is recommended to use a virtual environment.
 
-Seaborn & Matplotlib (Data Visualization)
+```bash
+# Clone the repository
+git clone [https://github.com/yourusername/BMB433-Project.git](https://github.com/yourusername/BMB433-Project.git)
+cd BMB433-Project
+
+# (Optional) Create and activate a virtual environment
+python -m venv venv
+
+# On Windows:
+venv\Scripts\activate
+
+# On macOS/Linux:
+source venv/bin/activate
+
+# Install dependencies
+pip install numpy pandas seaborn matplotlib scikit-learn
